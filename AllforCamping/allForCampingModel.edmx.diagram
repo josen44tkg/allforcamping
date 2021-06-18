@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="56e524ee4e6b407eb9a704f096398935" Name="Diagram1">
+        <EntityTypeShape EntityType="allforcampingModel.categorias" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.compras" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.detalle_venta" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.direcciones" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.empleados" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.paqueterias" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.productos" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.proveedores" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.tarjetas" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.usuarios" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="allforcampingModel.ventas" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="allforcampingModel.FK_productos_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_compras_Toproducto" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_compras_Toproveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_detalle_venta_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_detalle_venta_venta" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_direcciones_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_ventas_paqueteria" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_tarjetas_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="allforcampingModel.FK_ventas_usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

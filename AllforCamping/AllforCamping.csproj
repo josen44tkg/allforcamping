@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -162,24 +164,82 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="allForCampingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>allForCampingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="allForCampingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="allForCampingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>allForCampingModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="categorias.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="compras.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="detalle_venta.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="direcciones.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="empleados.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="paqueterias.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productos.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proveedores.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="tarjetas.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuarios.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ventas.cs">
+      <DependentUpon>allForCampingModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="allForCampingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>allForCampingModel.edmx</DependentUpon>
+      <LastGenOutput>allForCampingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="allForCampingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>allForCampingModel.edmx</DependentUpon>
+      <LastGenOutput>allForCampingModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -190,6 +250,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="allForCampingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>allForCampingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="allForCampingModel.edmx.diagram">
+      <DependentUpon>allForCampingModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -251,6 +318,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
