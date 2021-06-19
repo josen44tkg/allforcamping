@@ -11,7 +11,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="subcategoria" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="compras">
           <Key>
@@ -88,6 +87,14 @@
           <Property Name="nombre" Type="nchar" MaxLength="10" />
           <Property Name="telefono" Type="nchar" MaxLength="10" />
           <Property Name="correo" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="subcategorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" />
+          <Property Name="categoria" Type="int" />
         </EntityType>
         <EntityType Name="tarjetas">
           <Key>
@@ -203,6 +210,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_subcategorias_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="subcategorias" Type="Self.subcategorias" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="subcategorias">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tarjetas_usuarios">
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="0..1" />
           <End Role="tarjetas" Type="Self.tarjetas" Multiplicity="*" />
@@ -248,6 +267,7 @@
           <EntitySet Name="paqueterias" EntityType="Self.paqueterias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subcategorias" EntityType="Self.subcategorias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tarjetas" EntityType="Self.tarjetas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
@@ -275,6 +295,10 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
+          <AssociationSet Name="FK_subcategorias_categorias" Association="Self.FK_subcategorias_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="subcategorias" EntitySet="subcategorias" />
+          </AssociationSet>
           <AssociationSet Name="FK_tarjetas_usuarios" Association="Self.FK_tarjetas_usuarios">
             <End Role="usuarios" EntitySet="usuarios" />
             <End Role="tarjetas" EntitySet="tarjetas" />
@@ -299,8 +323,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="subcategoria" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="productos" Relationship="Self.FK_productos_ToTable" FromRole="categorias" ToRole="productos" />
+          <NavigationProperty Name="subcategorias" Relationship="Self.FK_subcategorias_categorias" FromRole="categorias" ToRole="subcategorias" />
         </EntityType>
         <EntityType Name="compras">
           <Key>
@@ -388,6 +412,15 @@
           <Property Name="correo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="compras" Relationship="Self.FK_compras_Toproveedor" FromRole="proveedores" ToRole="compras" />
         </EntityType>
+        <EntityType Name="subcategorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="categoria" Type="Int32" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_subcategorias_categorias" FromRole="subcategorias" ToRole="categorias" />
+        </EntityType>
         <EntityType Name="tarjetas">
           <Key>
             <PropertyRef Name="Id" />
@@ -446,6 +479,18 @@
             </Principal>
             <Dependent Role="productos">
               <PropertyRef Name="categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subcategorias_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="subcategorias" Type="Self.subcategorias" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="subcategorias">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -545,7 +590,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="allforcampingEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="allforcampingEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="categorias" EntityType="Self.categorias" />
           <EntitySet Name="compras" EntityType="Self.compras" />
           <EntitySet Name="detalle_venta" EntityType="Self.detalle_venta" />
@@ -554,12 +599,17 @@
           <EntitySet Name="paqueterias" EntityType="Self.paqueterias" />
           <EntitySet Name="productos" EntityType="Self.productos" />
           <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+          <EntitySet Name="subcategorias" EntityType="Self.subcategorias" />
           <EntitySet Name="tarjetas" EntityType="Self.tarjetas" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" />
           <EntitySet Name="ventas" EntityType="Self.ventas" />
           <AssociationSet Name="FK_productos_ToTable" Association="Self.FK_productos_ToTable">
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subcategorias_categorias" Association="Self.FK_subcategorias_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="subcategorias" EntitySet="subcategorias" />
           </AssociationSet>
           <AssociationSet Name="FK_compras_Toproducto" Association="Self.FK_compras_Toproducto">
             <End Role="productos" EntitySet="productos" />
@@ -599,13 +649,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="allforcampingModelStoreContainer" CdmEntityContainer="allforcampingEntities">
+        <EntityContainerMapping StorageEntityContainer="allforcampingModelStoreContainer" CdmEntityContainer="allforcampingEntities1">
           <EntitySetMapping Name="categorias">
             <EntityTypeMapping TypeName="allforcampingModel.categorias">
               <MappingFragment StoreEntitySet="categorias">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="subcategoria" ColumnName="subcategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -689,6 +738,15 @@
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subcategorias">
+            <EntityTypeMapping TypeName="allforcampingModel.subcategorias">
+              <MappingFragment StoreEntitySet="subcategorias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

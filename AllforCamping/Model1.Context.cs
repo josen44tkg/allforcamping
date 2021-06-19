@@ -13,10 +13,10 @@ namespace AllforCamping
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class allforcampingEntities : DbContext
+    public partial class allforcampingEntities1 : DbContext
     {
-        public allforcampingEntities()
-            : base("name=allforcampingEntities")
+        public allforcampingEntities1()
+            : base("name=allforcampingEntities1")
         {
         }
     
@@ -33,6 +33,7 @@ namespace AllforCamping
         public virtual DbSet<paqueterias> paqueterias { get; set; }
         public virtual DbSet<productos> productos { get; set; }
         public virtual DbSet<proveedores> proveedores { get; set; }
+        public virtual DbSet<subcategorias> subcategorias { get; set; }
         public virtual DbSet<tarjetas> tarjetas { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
         public virtual DbSet<ventas> ventas { get; set; }
