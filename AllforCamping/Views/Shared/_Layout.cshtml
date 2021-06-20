@@ -30,8 +30,8 @@
     </style>
 
 </head>
-<body style="background-color:saddlebrown">
-    <div class="navbar navbar-inverse">
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,24 +47,23 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <div class="dropdown nav navbar-nav">
-                    <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
-                    <!-- <div class="dropdown-content nav navbar-nav">
-                     Html.ActionLink("Supervivencia", "Supervivencia", "Categorias")
-                     Html.ActionLink("Tiendas", "Tiendas", "Categorias")
-                     Html.ActionLink("Alimentos", "Alimentos", "Categorias")
-                     Html.ActionLink("Herramientas", "Herramientas", "Categorias") 
-                        -->
+                        <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
+                        <div class="dropdown-content nav navbar-nav">
+                            @Html.ActionLink("Supervivencia", "Supervivencia", "Categorias")
+                            @Html.ActionLink("Tiendas", "Tiendas", "Categorias")
+                            @Html.ActionLink("Alimentos", "Alimentos", "Categorias")
+                            @Html.ActionLink("Herramientas", "Herramientas", "Categorias")
+                        </div>
+                    </div>
+                    <li>@Html.ActionLink("Ofertas", "Ofertas", "Productos")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
+                    <li>@Html.ActionLink("Carrito", "Index", "Carrito")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
-        <li>@Html.ActionLink("Ofertas", "Ofertas", "Productos")</li>
-        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-        <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
-        <li>@Html.ActionLink("Carrito", "Index", "Carrito")</li>
-
-        </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
-    </div>
     </div>
     <div class="container body-content">
         @RenderBody()
