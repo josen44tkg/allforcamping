@@ -7,25 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AllforCamping
+namespace AllforCamping.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class proveedores
+    public partial class paqueterias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public proveedores()
+        public paqueterias()
         {
-            this.compras = new HashSet<compras>();
+            this.ventas = new HashSet<ventas>();
         }
     
         public int Id { get; set; }
         public string nombre { get; set; }
-        public string telefono { get; set; }
-        public string correo { get; set; }
+        public Nullable<double> precio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<compras> compras { get; set; }
+        public virtual ICollection<ventas> ventas { get; set; }
     }
 }

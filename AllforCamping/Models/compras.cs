@@ -7,20 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AllforCamping
+namespace AllforCamping.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tarjetas
+    public partial class compras
     {
         public int Id { get; set; }
-        public string nombre_cliente { get; set; }
-        public Nullable<int> usuario { get; set; }
-        public Nullable<int> numero { get; set; }
-        public Nullable<int> cvv { get; set; }
-        public string fecha_vencimiento { get; set; }
+        public Nullable<int> proveedor { get; set; }
+        public Nullable<int> producto { get; set; }
+        public Nullable<int> cantidad { get; set; }
+        public Nullable<double> total { get; set; }
+        public string status { get; set; }
     
-        public virtual usuarios usuarios { get; set; }
+        public virtual productos productos { get; set; }
+        public virtual proveedores proveedores { get; set; }
     }
 }

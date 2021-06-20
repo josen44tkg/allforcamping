@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AllforCamping.Models.direcciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+<body style="background-color: saddlebrown">
+    <center><h2>Mis direcciones de envío</h2></center>
+
+    <p>
+        @Html.ActionLink("Crear nueva dirección", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.colonia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuarios.nombre)
+            </th>
+            <th></th>
+        </tr>
+        
+        
+        @foreach (var item in Model)
+        {
+            if (item.usuarios.Id==1)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.colonia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usuarios.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+                }
+            }
+
+    </table>
