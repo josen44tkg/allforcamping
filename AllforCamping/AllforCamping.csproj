@@ -255,6 +255,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1 - Copia.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model1.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
