@@ -30,7 +30,7 @@
     </style>
 
 </head>
-<body>
+<body style="background-color:saddlebrown">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -49,21 +49,21 @@
                     <div class="dropdown nav navbar-nav">
                     <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
                     <!-- <div class="dropdown-content nav navbar-nav">
-        @ Html.ActionLink("Supervivencia", "Supervivencia", "Categorias")
-        @ Html.ActionLink("Tiendas", "Tiendas", "Categorias")
-        @ Html.ActionLink("Alimentos", "Alimentos", "Categorias")
-        @ Html.ActionLink("Herramientas", "Herramientas", "Categorias")-->
-</div>
-                    </div>
-                    <li>@Html.ActionLink("Ofertas", "Ofertas", "Productos")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
-                    <li>@Html.ActionLink("Carrito", "Index", "Carrito")</li>
-
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    @ Html.ActionLink("Supervivencia", "Supervivencia", "Categorias")
+                    @ Html.ActionLink("Tiendas", "Tiendas", "Categorias")
+                    @ Html.ActionLink("Alimentos", "Alimentos", "Categorias")
+                    @ Html.ActionLink("Herramientas", "Herramientas", "Categorias")-->
             </div>
         </div>
+        <li>@Html.ActionLink("Ofertas", "Ofertas", "Productos")</li>
+        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+        <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
+        <li>@Html.ActionLink("Carrito", "Index", "Carrito")</li>
+
+        </ul>
+        @Html.Partial("_LoginPartial")
+    </div>
+    </div>
     </div>
     <div class="container body-content">
         @RenderBody()
