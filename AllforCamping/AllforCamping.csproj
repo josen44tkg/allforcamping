@@ -175,6 +175,7 @@
     <Compile Include="Controllers\direccionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -320,6 +321,11 @@
     <Content Include="Views\categorias\Details.cshtml" />
     <Content Include="Views\categorias\Edit.cshtml" />
     <Content Include="Views\categorias\Index.cshtml" />
+    <Content Include="Views\subcategorias\Create.cshtml" />
+    <Content Include="Views\subcategorias\Delete.cshtml" />
+    <Content Include="Views\subcategorias\Details.cshtml" />
+    <Content Include="Views\subcategorias\Edit.cshtml" />
+    <Content Include="Views\subcategorias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
