@@ -5,13 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Database1.dbo.compras' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="compras">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="proveedor" Type="int" />
           <Property Name="producto" Type="int" />
           <Property Name="cantidad" Type="int" />
@@ -30,20 +28,11 @@ advertencia 6002: La tabla o vista 'Database1.dbo.compras' no tiene definida nin
           <Property Name="email" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="pass" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="usuarios">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="ap_pat" />
-            <PropertyRef Name="ap_mat" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="telefono" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="colonia" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="nombre" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="ap_pat" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="ap_mat" Type="nchar" MaxLength="50" Nullable="false" />
@@ -56,38 +45,26 @@ advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ni
           <Property Name="colonia" Type="nchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="compras" EntityType="Self.compras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="empleados" EntityType="Self.empleados" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="compras" EntityType="Self.compras" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [compras].[Id] AS [Id], 
-    [compras].[proveedor] AS [proveedor], 
-    [compras].[producto] AS [producto], 
-    [compras].[cantidad] AS [cantidad], 
-    [compras].[total] AS [total], 
-    [compras].[status] AS [status]
-    FROM [dbo].[compras] AS [compras]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="usuarios" EntityType="Self.usuarios" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [usuarios].[Id] AS [Id], 
-    [usuarios].[nombre] AS [nombre], 
-    [usuarios].[ap_pat] AS [ap_pat], 
-    [usuarios].[ap_mat] AS [ap_mat], 
-    [usuarios].[email] AS [email], 
-    [usuarios].[telefono] AS [telefono], 
-    [usuarios].[username] AS [username], 
-    [usuarios].[pass] AS [pass], 
-    [usuarios].[calle] AS [calle], 
-    [usuarios].[numext] AS [numext], 
-    [usuarios].[colonia] AS [colonia]
-    FROM [dbo].[usuarios] AS [usuarios]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="compras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="proveedor" Type="Int32" />
+          <Property Name="producto" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="total" Type="Double" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
         <EntityType Name="empleados">
           <Key>
             <PropertyRef Name="Id" />
@@ -100,29 +77,11 @@ advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ni
           <Property Name="email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="pass" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="compras">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="proveedor" Type="Int32" />
-          <Property Name="producto" Type="Int32" />
-          <Property Name="cantidad" Type="Int32" />
-          <Property Name="total" Type="Double" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="usuarios">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="nombre" />
-            <PropertyRef Name="ap_pat" />
-            <PropertyRef Name="ap_mat" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="telefono" />
-            <PropertyRef Name="username" />
-            <PropertyRef Name="colonia" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ap_pat" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ap_mat" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
@@ -134,9 +93,9 @@ advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ni
           <Property Name="numext" Type="Int32" />
           <Property Name="colonia" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="empleados" EntityType="Self.empleados" />
+        <EntityContainer Name="Database1Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="compras" EntityType="Self.compras" />
+          <EntitySet Name="empleados" EntityType="Self.empleados" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" />
         </EntityContainer>
       </Schema>
@@ -144,7 +103,19 @@ advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ni
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+          <EntitySetMapping Name="compras">
+            <EntityTypeMapping TypeName="Database1Model.compras">
+              <MappingFragment StoreEntitySet="compras">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="producto" ColumnName="producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="empleados">
             <EntityTypeMapping TypeName="Database1Model.empleados">
               <MappingFragment StoreEntitySet="empleados">
@@ -155,18 +126,6 @@ advertencia 6002: La tabla o vista 'Database1.dbo.usuarios' no tiene definida ni
                 <ScalarProperty Name="area" ColumnName="area" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="compras">
-            <EntityTypeMapping TypeName="Database1Model.compras">
-              <MappingFragment StoreEntitySet="compras">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
-                <ScalarProperty Name="producto" ColumnName="producto" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

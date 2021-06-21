@@ -13,10 +13,10 @@ namespace AllforCamping.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Database1Entities : DbContext
+    public partial class Database1Entities1 : DbContext
     {
-        public Database1Entities()
-            : base("name=Database1Entities")
+        public Database1Entities1()
+            : base("name=Database1Entities1")
         {
         }
     
@@ -25,8 +25,8 @@ namespace AllforCamping.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<empleados> empleados { get; set; }
         public virtual DbSet<compras> compras { get; set; }
+        public virtual DbSet<empleados> empleados { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
     }
 }
