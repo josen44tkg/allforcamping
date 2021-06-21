@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewBag.Title = "Productos";
+}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Caompatible" content="ie=edge">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="~/css/estilos.css" />
+
+</head>
+<body>
+    <div class="container">
+
+        <h2 style="text-align:center">Nuestros Productos</h2>
+
+        <div class="contenido">
+            <div class="row">
+                <div class="col s4">
+                    <div class="field" id="searchform">
+                        <input type="text" id="searchterm" placeholder="Producto" />
+                        <button type="button" id="search">Buscar</button>
+                    </div>
+                    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+                </div>
+                <div class="col s4">
+                    <div class="field" id="searchform">
+                        <input type="text" id="searchterm" placeholder="Menor Precio" />
+                        <button type="button" id="search">Filtrar por</button>
+                    </div>
+                    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+
+                </div>
+                <div class="col s4">
+                    <div class="field" id="searchform">
+                        <input type="text" id="searchterm" placeholder="Ascendente" />
+                        <button type="button" id="search">Ordenar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <h5>Supervivencia</h5>
+                    <br />
+                    <img src="~/img/ac7.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$500.00</i></b></h9>
+                    <br />
+                    <h9>Descubre nuestra amplia oferta de gadgets y accesorios para supervivencia</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Pinzas</h5>
+                    <br />
+                    <img src="~/img/ac8.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$780.85</i></b></h9>
+                    <br />
+                    <h9>navajas multiusos de hasta 14 funciones como picos-pala</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Lona</h5>
+                    <br />
+                    <img src="~/img/ac9.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$1500.00</i></b></h9>
+                    <br />
+                    <h9>Tenemos varios tamaños de lonas impermeables para camping.</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Funda</h5>
+                    <br />
+                    <img src="~/img/ac4.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$955.00</i></b></h9>
+                    <br />
+                    <h9>fundas porta-mapas, porta-documentos, pantalones de lluvia o cubre-mochilas</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Paravientos</h5>
+                    <br />
+                    <img src="~/img/ac5.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$900.00</i></b></h9>
+                    <br />
+                    <h9> paravientos de polietileno de todos los tamaños, 4, 5 o 6 metros</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Martillo</h5>
+                    <br />
+                    <img src="~/img/ac6.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$95.00</i></b></h9>
+                    <br />
+                    <h9>Consulta nuestra amplia oferta de herramientas de outdoor</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h5>Navaja</h5>
+                    <br />
+                    <img src="~/img/ac3.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$9500.00</i></b></h9>
+                    <br />
+                    <h9>Consulta nuestra amplia oferta de navajas plegables de bolsillo</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Brùjula</h5>
+                    <br />
+                    <img src="~/img/ac2.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$350.20</i></b></h9>
+                    <br />
+                    <h9>Tenemos una gran variedad de brújulas para senderismo. </h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+                <td>
+                    <h5>Primáticos</h5>
+                    <br />
+                    <img src="~/img/ac3.png" width="180" height="180" />
+                    <br />
+                    <h9><b><i>$90.00</i></b></h9>
+                    <br />
+                    <h9>Tenemos una gran variedad de prismáticos y telescopios monoculares para senderismo</h9>
+                    <br />
+                    <input id="btnCompras" type="button" value="Comprar" />
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="linea-division"></div>
+
+        <h4 style="text-align:center">Tendencias y Novedades</h4>
+
+        <div class="linea-division"></div>
+
+        <div class="row" style="text-align:center">
+            <div class="col s4">
+
+                <h5>Carpa Básica</h5>
+                <br />
+                <img src="~/img/ac10.png" width="210" height="210" />
+                <br />
+                <h9><b><i>$2290.00</i></b></h9>
+                <br />
+                <input id="btnDetalles" type="button" value="Ver detalles" />
+
+            </div>
+
+            <div class="col s4">
+                <h5>Encendedor</h5>
+                <br />
+                <img src="~/img/ac11.png" width="210" height="210" />
+                <br />
+                <h9><b><i>$450.00</i></b></h9>
+                <br />
+                <input id="btnDetalles" type="button" value="Ver detalles" />
+            </div>
+
+            <div class="col s4">
+                <h5>Funda para silla</h5>
+                <br />
+                <img src="~/img/ac11.png" width="210" height="210" />
+                <br />
+                <h9><b><i>$256.70</i></b></h9>
+                <br />
+                <input id="btnDetalles" type="button" value="Ver detalles" />
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>
