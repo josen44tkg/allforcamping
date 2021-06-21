@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/20/2021 18:17:10
+-- Date Created: 06/20/2021 18:41:12
 -- Generated from EDMX file: C:\Users\fisio\Documents\e-commerce\allforcamping\AllforCamping\Models\Model1.edmx
 -- --------------------------------------------------
 
@@ -17,6 +17,12 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_productos_ToTable]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[productos] DROP CONSTRAINT [FK_productos_ToTable];
+GO
+IF OBJECT_ID(N'[dbo].[FK_subcategorias_categorias]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[subcategorias] DROP CONSTRAINT [FK_subcategorias_categorias];
+GO
 IF OBJECT_ID(N'[dbo].[FK_compras_Toproducto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[compras] DROP CONSTRAINT [FK_compras_Toproducto];
 GO
@@ -32,17 +38,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_direcciones_usuario]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[direcciones] DROP CONSTRAINT [FK_direcciones_usuario];
 GO
-IF OBJECT_ID(N'[dbo].[FK_productos_ToTable]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[productos] DROP CONSTRAINT [FK_productos_ToTable];
-GO
-IF OBJECT_ID(N'[dbo].[FK_subcategorias_categorias]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[subcategorias] DROP CONSTRAINT [FK_subcategorias_categorias];
+IF OBJECT_ID(N'[dbo].[FK_ventas_paqueteria]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ventas] DROP CONSTRAINT [FK_ventas_paqueteria];
 GO
 IF OBJECT_ID(N'[dbo].[FK_tarjetas_usuarios]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[tarjetas] DROP CONSTRAINT [FK_tarjetas_usuarios];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ventas_paqueteria]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ventas] DROP CONSTRAINT [FK_ventas_paqueteria];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ventas_usuarios]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ventas] DROP CONSTRAINT [FK_ventas_usuarios];
