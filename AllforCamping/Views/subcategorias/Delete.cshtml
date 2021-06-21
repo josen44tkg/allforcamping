@@ -5,45 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<div style="background-color: burlywood ">
+    <div class="container-fluid h1 text-center">
+        <h1>Eliminar subcategoria</h1>
+    </div>
+    <div class="container-fluid text-danger">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>subcategorias</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+        <h3>¿Estas seguro que deseas eliminar esta subcategoria?</h3>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+    <div class="container-fluid">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.categoria)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.categoria)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.categorias.nombre)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.categoria)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.categorias.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.categoria)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.categorias.nombre)
+            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            <dd>
+                @Html.DisplayFor(model => model.categorias.nombre)
+            </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color container-fluid">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <button type="button" class="btn btn-default">@Html.ActionLink("Regresar", "Index")</button>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+    </div>
 </div>
