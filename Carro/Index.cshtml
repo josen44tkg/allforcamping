@@ -1,39 +1,50 @@
-﻿
+﻿@using alforcampingv2.Models;
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
 }
 <body style="background-color: saddlebrown">
 
     <div style="background-color: burlywood; width:100%" align="center">
 
 
-
+        @{ var sub = 0.0; int ca = 0;}
 
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-xxl-5">
                     <div class="table-responsive">
                         <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Tienda de campaña</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Precio unitario:</td>
-                                    <td>$100.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Descripción: Tienda de campaña grande</td>
-                                    <td><img src="~/Content/img/tienda.jpg" style="width: 30%;" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Disponibles: 4</td>
-                                    <td>Cantidad  <input type="number" value="2" style="width:20%" /></td>
-                                </tr>
-                            </tbody>
+                            
+                            @foreach (Item item in (List<Item>)Session["cart"])
+                            {
+                                @ ca = ca + item.cantidad; sub = sub + item.productos.precio_venta * item.cantidad;
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Producto</th>
+                                        <th>@item.productos.nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Precio unitario:</td>
+                                        <td>$@item.productos.precio_venta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Descripción: Tienda de campaña grande</td>
+                                        <td><img src="~/Content/img/tienda.jpg" style="width: 30%;" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Disponibles: @item.productos.stock</td>
+                                        <td>Cantidad  <input type="number" value="@item.cantidad" style="width:20%" /></td>
+                                    </tr>
+
+                                </tbody>
+                            }
                         </table>
                     </div>
                 </div>
@@ -43,13 +54,13 @@
                             <thead>
                                 <tr>
                                     <th>Total de compra</th>
-                                    <th>$200.00</th>
+                                    <th>$@sub</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Cantidad de articulos</td>
-                                    <td>2</td>
+                                    <td>@ca</td>
                                 </tr>
                                 <tr>
                                     <td>Elegir envio</td>
