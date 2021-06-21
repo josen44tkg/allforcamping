@@ -1,0 +1,98 @@
+﻿@model AllforCamping.Models.usuarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_pat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_pat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_mat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_mat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colonia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colonia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
