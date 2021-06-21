@@ -354,11 +354,11 @@
     <Content Include="Views\subcategorias\Edit.cshtml" />
     <Content Include="Views\subcategorias\Index.cshtml" />
     <Content Include="Views\Catálogo\Index.cshtml" />
+    <Content Include="Views\Paqueterias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\Paqueterias\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
