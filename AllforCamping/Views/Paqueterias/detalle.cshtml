@@ -1,0 +1,85 @@
+﻿@model exau3y4.Models.Paqueterias
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color: burlywood ">
+    <div class="container-fluid h1 text-center">
+        <h1>Detalles de la paqueteria</h1>
+    </div>
+    <div class="container-fluid">
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RFC)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RFC)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Web)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Web)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contacto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contacto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TelContacto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TelContacto)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="container-fluid">
+        <button type="button" class="btn btn-default">@Html.ActionLink("Editar", "Edit", new { id = Model.Id })</button>
+        <button type="button" class="btn btn-default">@Html.ActionLink("Regresar", "Index")</button>
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+</div>

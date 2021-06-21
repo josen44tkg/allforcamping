@@ -354,9 +354,10 @@
     <Content Include="Views\subcategorias\Edit.cshtml" />
     <Content Include="Views\subcategorias\Index.cshtml" />
     <Content Include="Views\Catálogo\Index.cshtml" />
-    <Content Include="Views\Paqueterias\Index.cshtml" />
+    <Content Include="Views\Paqueterias\Detalles.cshtml" />
     <Content Include="Views\Paqueterias\Crear.cshtml" />
     <Content Include="Views\Paqueterias\Eliminar.cshtml" />
+    <Content Include="Views\Paqueterias\detalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
