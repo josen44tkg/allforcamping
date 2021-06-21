@@ -27,6 +27,9 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+        .body-content {
+            background-color: #deb887
+        }
     </style>
 
 </head>
@@ -45,25 +48,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <div class="dropdown nav navbar-nav">
-                    <li>@Html.ActionLink("Categorias", "Index", "Categorias")</li>
-                    <!-- <div class="dropdown-content nav navbar-nav">
-                     Html.ActionLink("Supervivencia", "Supervivencia", "Categorias")
-                     Html.ActionLink("Tiendas", "Tiendas", "Categorias")
-                     Html.ActionLink("Alimentos", "Alimentos", "Categorias")
-                     Html.ActionLink("Herramientas", "Herramientas", "Categorias") 
-                        -->
+                    
+                    <li>@Html.ActionLink("Empleados", "Index", "empleados")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "compras")</li>
+                    <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
             </div>
-        </div>
-        <li>@Html.ActionLink("Empleados", "Index", "empleados")</li>
-        <li>@Html.ActionLink("Compras", "Index", "compras")</li>
-        <li>@Html.ActionLink("Usuarios", "Index", "usuarios")</li>
-        <li>@Html.ActionLink("Carrito", "Index", "Carrito")</li>
-
-        </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
+        
     </div>
     </div>
     <div class="container body-content">
