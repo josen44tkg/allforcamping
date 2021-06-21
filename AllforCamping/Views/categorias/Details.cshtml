@@ -5,31 +5,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div style="background-color: burlywood ">
+    <div class="container-fluid h1 text-center">
+        <h1>Detalles de la categoria</h1>
+    </div>
+    <div class="container-fluid">
 
-<div>
-    <h4>categorias</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.subcategorias.nombre)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.subcategorias.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.subcategorias.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.subcategorias.nombre)
+            </dd>
 
-    </dl>
+        </dl>
+
+    </div>
+    <div class="container-fluid">
+        <button type="button" class="btn btn-warning">@Html.ActionLink("Editar categoria", "Edit", new { id = Model.Id })</button>
+        <button type="button" class="btn btn-default">@Html.ActionLink("Regresar", "Index")</button>
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
