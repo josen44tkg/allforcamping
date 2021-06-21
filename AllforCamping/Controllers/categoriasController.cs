@@ -14,7 +14,7 @@ namespace AllforCamping.Controllers
     {
         private allforcampingEntities1 db = new allforcampingEntities1();
 
-        // GET: categorias
+        // GET: categoriacontroller
         public ActionResult Index()
         {
             var categorias = db.categorias.Include(c => c.subcategorias);
