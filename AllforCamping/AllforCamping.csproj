@@ -170,7 +170,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
-    <Compile Include="Controllers\comprasController.cs" />
     <Compile Include="Controllers\direccionesController.cs" />
     <Compile Include="Controllers\empleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,7 +182,7 @@
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\compras.cs">
-      <DependentUpon>Model1 - Copia.tt</DependentUpon>
+      <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\detalle_venta.cs">
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
@@ -192,7 +191,7 @@
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\empleados.cs">
-      <DependentUpon>Model1 - Copia.tt</DependentUpon>
+      <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -206,11 +205,25 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Model1.Designer.cs">
       <DependentUpon>Model1.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\Model2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\paqueterias.cs">
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
@@ -228,7 +241,7 @@
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\usuarios.cs">
-      <DependentUpon>Model1 - Copia.tt</DependentUpon>
+      <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ventas.cs">
       <DependentUpon>Model1 - Copia.tt</DependentUpon>
@@ -257,6 +270,16 @@
       <LastGenOutput>Model1 - Copia.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.edmx.sql" />
+    <Content Include="Models\Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -265,6 +288,13 @@
     </EntityDeploy>
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -327,11 +357,6 @@
     <Content Include="Views\empleados\Details.cshtml" />
     <Content Include="Views\empleados\Edit.cshtml" />
     <Content Include="Views\empleados\Index.cshtml" />
-    <Content Include="Views\compras\Create.cshtml" />
-    <Content Include="Views\compras\Delete.cshtml" />
-    <Content Include="Views\compras\Details.cshtml" />
-    <Content Include="Views\compras\Edit.cshtml" />
-    <Content Include="Views\compras\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

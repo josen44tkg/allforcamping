@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -12,22 +13,22 @@ namespace AllforCamping.Controllers
 {
     public class empleadosController : Controller
     {
-        private Model1 db = new Model1();
+        private Database1Entities db = new Database1Entities();
 
         // GET: empleados
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.empleados.ToList());
+            return View(await db.empleados.ToListAsync());
         }
 
         // GET: empleados/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            empleados empleados = db.empleados.Find(id);
+            empleados empleados = await db.empleados.FindAsync(id);
             if (empleados == null)
             {
                 return HttpNotFound();
@@ -46,12 +47,12 @@ namespace AllforCamping.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,app,apm,area,email,pass")] empleados empleados)
+        public async Task<ActionResult> Create([Bind(Include = "Id,nombre,app,apm,area,email,pass")] empleados empleados)
         {
             if (ModelState.IsValid)
             {
                 db.empleados.Add(empleados);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -59,13 +60,13 @@ namespace AllforCamping.Controllers
         }
 
         // GET: empleados/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            empleados empleados = db.empleados.Find(id);
+            empleados empleados = await db.empleados.FindAsync(id);
             if (empleados == null)
             {
                 return HttpNotFound();
@@ -78,25 +79,25 @@ namespace AllforCamping.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,app,apm,area,email,pass")] empleados empleados)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,nombre,app,apm,area,email,pass")] empleados empleados)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(empleados).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(empleados);
         }
 
         // GET: empleados/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            empleados empleados = db.empleados.Find(id);
+            empleados empleados = await db.empleados.FindAsync(id);
             if (empleados == null)
             {
                 return HttpNotFound();
@@ -107,11 +108,11 @@ namespace AllforCamping.Controllers
         // POST: empleados/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            empleados empleados = db.empleados.Find(id);
+            empleados empleados = await db.empleados.FindAsync(id);
             db.empleados.Remove(empleados);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
